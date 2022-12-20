@@ -1,7 +1,7 @@
 let elList = document.querySelector('.list');
 let elSelect = document.querySelector('.js-select');
 let elInput = document.querySelector('.js-input');
-let elSort = document.querySelector('sort-select');
+let elSort = document.querySelector('.sort-select');
 
 
 function func(array) {
@@ -49,7 +49,7 @@ elSelect.addEventListener('change', (evt) => {
     newArray = [];
     elList.innerHTML = '';
 
-    if(elSelect.value != 'All') {
+    if (elSelect.value != 'All') {
         pokemons.forEach((poc) => {
             if (poc.type.includes(elSelect.value)) {
                 newArray.push(poc)
@@ -63,30 +63,20 @@ elSelect.addEventListener('change', (evt) => {
 })
 
 let searchArr = [];
-elInput.addEventListener('input' , (evt) => {
+elInput.addEventListener('input', (evt) => {
     evt.preventDefault();
     elList.innerHTML = '';
 
     let elInputVal = elInput.value.toLowerCase();
-    
+
     pokemons.forEach((el) => {
         if (el.name.toLowerCase().includes(elInputVal)) {
             searchArr.push(el);
-            // console.log(searchArr);
         }
     })
     func(searchArr);
     searchArr = [];
 })
-
-
-
-
-
-
-
-
-
 
 
 
@@ -110,6 +100,25 @@ setArray.forEach((el) => {
     elOption.textContent = el;
     elSelect.appendChild(elOption);
 });
+
+elSort.addEventListener('change', () => {
+    elList.innerHTML = '';
+    pokemons.sort((a, b) => {
+        let aVal = a.name.toLowerCase();
+        let bVal = b.name.toLowerCase();
+
+        if (elSort.value == 'filter') {
+            return func(pokemons)
+        }
+        else if (elSort.value == 'a-z') {
+            return aVal.charCodeAt(0) - bVal.charCodeAt(0);
+        }
+        else if (elSort.value == 'z-a') {
+            return bVal.charCodeAt(0) - aVal.charCodeAt(0);
+        }
+    })
+    func(pokemons);
+})
 
 
 
