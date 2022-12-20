@@ -6,21 +6,35 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Document</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@400&display=swap" rel="stylesheet"> -->
 	<link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
 	<div class="container">
-		<ul class="list">
+		<div class="row">
+			<div class="header">
+				<form class="js-form">
+					<input class="js-input" type="text" placeholder="Search...">
+				</form>
+				<select class="js-select">
+					<option value="All">All</option>
+				</select>
+				<select class="sort-select">
+					<option value="filter">Filter</option>
+					<option value="a-z">A-Z</option>
+					<option value="z-a">Z-A</option>
+				</select>
+			</div>
+			<ul class="list">
 
-		</ul>
+			</ul>
+		</div>
 	</div>
 
 	<script src="./js/pokemons.js"></script>
-	<script src="./js/main.js"></script>
 	<script src="./js/home-work.js"></script>
 </body>
 
